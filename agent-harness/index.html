@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Harness Research - Learn from the Best</title>
+  <meta name="description" content="Deep dive into agent harness architecture: learn-claude-code & hermes-agent">
+  
+  <!-- Docsify -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css">
+  
+  <!-- Custom styles -->
+  <style>
+    .sidebar-nav ul { padding-left: 0; }
+    .sidebar-nav li { list-style: none; margin: 8px 0; }
+    .app-name { font-size: 16px; font-weight: bold; }
+    .markdown-section { max-width: 900px; }
+    .markdown-section h1 { border-bottom: 2px solid #42b983; padding-bottom: 10px; }
+    .markdown-section h2 { border-left: 4px solid #42b983; padding-left: 15px; }
+    blockquote { border-left: 4px solid #42b983; }
+    code { background-color: #f6f8fa; }
+    pre { background-color: #f6f8fa; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  
+  <script>
+    window.$docsify = {
+      name: '🤖 Agent Harness Research',
+      repo: 'https://github.com/tim5wang/learn-claw-code',
+      homepage: 'agent-harness/README.md',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      maxLevel: 3,
+      auto2top: true,
+      search: {
+        paths: 'auto',
+        placeholder: 'Search...',
+        noData: 'No results found',
+        depth: 3
+      },
+      pagination: {
+        previousText: '← Previous',
+        nextText: 'Next →',
+        crossChapter: true
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            const url = 'https://github.com/tim5wang/learn-claw-code/blob/main/agent-harness/' + vm.route.file;
+            const editHtml = '\n\n---\n\n[📝 Edit on GitHub](' + url + ')\n';
+            return html + editHtml;
+          });
+          
+          hook.afterEach(function(html) {
+            const footer = `
+              <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #eee; color: #666;">
+                <p>Agent Harness Research | Built with Docsify</p>
+                <p>Study projects: 
+                  <a href="https://github.com/shareAI-lab/learn-claude-code" target="_blank">learn-claude-code</a> | 
+                  <a href="https://github.com/NousResearch/hermes-agent" target="_blank">hermes-agent</a>
+                </p>
+              </footer>
+            `;
+            return html + footer;
+          });
+        }
+      ]
+    };
+  </script>
+  
+  <!-- Docsify scripts -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-search-box@1/dist/docsify-search-box-plugin.min.js"></script>
+</body>
+</html>
